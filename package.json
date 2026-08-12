@@ -1,0 +1,32 @@
+{
+  "name": "gheseyar-admin",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev -p 3200 -H 0.0.0.0",
+    "build": "next build",
+    "start": "next start",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "bcryptjs": "^3.0.2",
+    "drizzle-orm": "^0.38.4",
+    "jose": "^5.9.6",
+    "lucide-react": "^1.31.0",
+    "next": "15.1.6",
+    "postgres": "^3.4.5",
+    "react": "19.0.0",
+    "react-dom": "19.0.0",
+    "zustand": "^5.0.3"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.0.0",
+    "@types/bcryptjs": "^2.4.6",
+    "@types/node": "^22.13.0",
+    "@types/react": "^19.0.8",
+    "@types/react-dom": "^19.0.3",
+    "postcss": "^8.5.1",
+    "tailwindcss": "^4.0.0",
+    "typescript": "^5.7.3"
+  }
+}

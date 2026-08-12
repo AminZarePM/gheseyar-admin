@@ -1,0 +1,25 @@
+# استک پنل ادمین — مستقل از اپ و لندینگ.
+#
+# روی دو شبکهٔ خارجی می‌نشیند:
+#   gheseyar-net  تا edge بتواند به آن برسد
+#   gheseyar-db   تا به Postgres استک اپ دسترسی داشته باشد
+#
+# نام سرویس عمداً «admin» است، چون edge با همین نام آن را پیدا می‌کند.
+name: gheseyar-admin
+
+services:
+  admin:
+    build: .
+    restart: unless-stopped
+    env_file: .env
+    expose: ['3000']
+    networks: [edge, dbnet]
+    mem_limit: 384m
+
+networks:
+  edge:
+    external: true
+    name: gheseyar-net
+  dbnet:
+    external: true
+    name: gheseyar-db
