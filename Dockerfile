@@ -22,5 +22,12 @@ COPY --from=builder /app/.next/standalone ./
 COPY --from=builder /app/.next/static ./.next/static
 COPY deploy ./deploy
 
+# اسکریپت ساخت ادمین بیرون از باندل نِکست اجرا می‌شود و این دو پکیج را
+# مستقیم import می‌کند. خروجی standalone فقط وابستگی‌های ردیابی‌شده را
+# می‌آورد و این‌ها داخل باندل رفته‌اند، پس جداگانه کپی می‌شوند.
+# هر دو خالص جاوااسکریپت و بدون وابستگی‌اند، پس کپی ساده کافی است.
+COPY --from=builder /app/node_modules/bcryptjs ./node_modules/bcryptjs
+COPY --from=builder /app/node_modules/postgres ./node_modules/postgres
+
 EXPOSE 3000
 CMD ["node", "server.js"]
